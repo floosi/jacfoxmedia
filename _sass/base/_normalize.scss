@@ -31,7 +31,7 @@ main {
 }
 
 section {
-  grid-template-columns: 1fr repeat(2, minmax(auto, 36em)) 1fr;
+  grid-template-columns: 1fr repeat(2, minmax(auto, 43em)) 1fr;
   display: grid
 }
 span {
@@ -53,6 +53,10 @@ span {
 .col-3 {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
+
+  .span-2-3 {
+    grid-column: 1 / 3
+  }
 }
 .hp {
   padding-left: 20px;

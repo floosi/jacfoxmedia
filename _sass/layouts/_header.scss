@@ -5,8 +5,9 @@ header#masthead {
   right: 0;
   z-index: 99;
   display: grid;
-  grid-template-columns: 1fr repeat(2, minmax(auto, 40em)) 1fr;
+  grid-template-columns: 1fr repeat(2, minmax(auto, 48em)) 1fr;
   padding: 60px 0;
+  @include transition-3;
 
   .container {
     display: grid;
@@ -15,16 +16,14 @@ header#masthead {
 
   }
 
-  a.branding {
-    width: 240px;
-    z-index: 99999
-  }
-
-  picture {
+  .branding {
     display: grid;
+    width: 240px;
+    z-index: 99999;
 
     svg * {
-      fill: $color__white
+      fill: $color__white;
+      @include transition-3
     }
 
     &.black svg * {
@@ -33,32 +32,73 @@ header#masthead {
   }
 
   &.smaller {
-    // background-color: transparentize($color__black, 0.2) ;
-    picture svg {
+    padding: 20px 0;
+
+    &:hover {
+      background-color: transparentize($color__black, 0.2);
+      .branding svg {
+        * {
+          fill: $color__white
+        }
+        #Text {
+          opacity: 1
+        }
+      }
+      #menu-toggle span {
+        background-color: $color__white
+      }
+    }
+
+
+    .branding svg {
       * {
         fill: $color__black
       }
 
       #Text {
-        display: none
+        opacity: 0
       }
     }
     #menu-toggle span {
       background-color: $color__black
     }
-  }
-  &.menu-open picture svg {
-    * {
-      fill: $color__black
-    }
 
-    #Text {
-      display: block
+    &.menu-open {
+      padding: 60px 0;
+
+      #menu-toggle span {
+        background-color: $color__black
+      }
+      .branding svg {
+        * {
+          fill: $color__black
+        }
+
+        #Text {
+          display: block
+        }
+      }
+    }
+  }
+  &.menu-open {
+    #menu-toggle span {
+      background-color: $color__black
+    }
+    .branding svg {
+      * {
+        fill: $color__black
+      }
+
+      #Text {
+        display: block
+      }
     }
   }
 }
 // body.logo-black #masthead.smaller {
-//   background-color: transparentize($color__light-grey, 0.2);
+//   &:hover {
+//     background-color: transparentize($color__light-grey, 0.2);
+//   }
 // }
 #menu-toggle {
   position: relative;
@@ -91,11 +131,11 @@ header#masthead {
 
     span {
       &.one {
-        width: 15px
+        width: 15px;
       }
 
       &.two {
-        width: 27px
+        width: 27px;
       }
     }
   }
@@ -105,6 +145,7 @@ header#masthead {
       background-color: $color__black;
     }
   }
+
   &.open {
     span {
       width: 27px;
@@ -113,6 +154,7 @@ header#masthead {
       &.one {
         transform: translateY(2px) rotate(-45deg);
       }
+
       &.two {
         transform: translateY(-3px) rotate(45deg);
       }

@@ -6,10 +6,12 @@ class: work logo-black
 <main class="vp">
   <section class="vp">
     <div class="container hp tp">
-      <div class="vp">
-        <h1>{{ page.title }}</h1>
-        <h2 class="wow fadeInUp tp">Some of our creations</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis consequat ex, nec porta nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque porttitor turpis velit, sed convallis est blandit id. Fusce ut ipsum ipsum.</p>
+      <div class="vp col col-2">
+        <div class="">
+          <h1>{{ page.title }}</h1>
+          <h2 class="wow fadeInUp tp">Some of our creations</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis consequat ex, nec porta nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque porttitor turpis velit, sed convallis est blandit id. Fusce ut ipsum ipsum.</p>
+        </div>      
       </div>
       <div class="col col-2 bp">
         {% for project in site.projects %}
